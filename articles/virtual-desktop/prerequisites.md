@@ -62,10 +62,12 @@ The following table summarizes identity scenarios that Azure Virtual Desktop cur
 
 | Identity scenario | Session hosts | User accounts |
 |--|--|--|
-| Azure AD + AD DS | Joined to AD DS | In AD DS and Azure AD, synchronized |
+| Azure AD + AD DS | Joined to AD DS | In Azure AD and AD DS, synchronized |
 | Azure AD + Azure AD DS | Joined to Azure AD DS | In Azure AD and Azure AD DS, synchronized |
 | Azure AD + Azure AD DS + AD DS | Joined to Azure AD DS | In Azure AD and AD DS, synchronized |
-| Azure AD only | Joined to Azure AD | In Azure AD |
+| Azure AD + AD DS | Joined to Azure AD | In Azure AD and AD DS, synchronized|
+| Azure AD + Azure AD DS | Joined to Azure AD | In Azure AD and Azure AD DS, synchronized|
+| Azure AD only | Joined to Azure AD | In Azure AD ||
 
 > [!NOTE]
 > If you're planning on using Azure AD only with [FSLogix Profile Container](/fslogix/configure-profile-container-tutorial), you will need to [store profiles on Azure Files](create-profile-container-azure-ad.md), which is currently in public preview. In this scenario, user accounts must be [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md), which means you'll also need AD DS and [Azure AD Connect](../active-directory/hybrid/whatis-azure-ad-connect.md). You must create these accounts in AD DS and synchronize them to Azure AD. The service doesn't currently support environments where users are managed with Azure AD and synchronized to Azure AD DS. 
